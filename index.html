@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h5>1. Write one example explaining how you can write a callback function ?</h5>
+<pre>function myDisplayer(sum) {
+    console.log(sum);
+  }
+  
+  function myCalculator(num1, num2, myCallback) {
+    let sum = num1 + num2;
+    myCallback(sum);
+  }
+  
+  myCalculator(5, 5, myDisplayer);
+  </pre>
+  <hr>
+<h5>2. "Write callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+
+    Explain callback hell.
+    Numbers
+    1
+    2
+    3
+    4
+    5
+    6
+    7"</h5>
+    <pre>  setTimeout(()=>{
+        console.log("1")
+        
+            setTimeout(()=>{
+            console.log("2")
+        
+                setTimeout(()=>{
+                console.log("3")
+        
+                    setTimeout(()=>{
+                    console.log("4")
+        
+                        setTimeout(()=>{
+                    console.log("5")
+        
+                        setTimeout(()=>{
+                        console.log("6")
+        
+                            setTimeout(()=>{
+                            console.log("7")
+                                           },7000)
+                                     },6000)
+                                },5000)
+                        },4000)
+                 },3000)
+           },2000)
+    },1000)
+</pre>
+<hr>
+    <h5>3. "Write promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+
+        Numbers
+        1
+        2
+        3
+        4
+        5
+        6
+        7"</h5>
+        <pre>setTimeout(() => {
+            let a = new Promise((resolve,reject) => 
+            {resolve(setTimeout(() => 
+                {console.log('1')
+                    setTimeout(() => {
+                        console.log('2')
+                        setTimeout(() => {
+                            console.log('3')
+                            setTimeout(() => {
+                                console.log('4')
+                                setTimeout(() => {
+                                    console.log('5')
+                                    setTimeout(() => {
+                                        console.log('6')
+                                        setTimeout(() => {
+                                            console.log('7')
+                                        }, 7000);
+                                    }, 6000);
+                                }, 5000);
+                            }, 4000);
+                        }, 3000);
+                    }, 2000);
+                }, 1000));
+            })
+            a.then().catch();
+        });
+
+</pre>
+<hr>
+        <h5>4. Create a promise function accepting a argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed then it should go to reject state and catch the error and print Promise Rejected </h5>
+        <pre>let a = new Promise((resolve,reject)=>{
+            let a = "check"
+            if(a == "check"){
+                resolve("promise Resolved")
+            }
+            else reject("promise Reject")
+        
+        })
+        a.then((data)=>{console.log(data)}).catch((data)=>{console.log(data)})
+                    
+        
+        </pre>
+        <hr>
+        <h5>5. Create examples to explain callback function</h5>
+        <pre> function OddorEven(number,callback){
+            const result =(number%2 ==0) ? 'Even' : 'Odd';
+            callback(number,result);
+        }
+        OddorEven(27,(number,result)=>{
+            console.log(number+ 'is' + result);
+        })</pre>
+        <hr>
+        <h5>6. Create examples to explain callback hell function</h5>
+        <pre>let words = document.querySelectorAll(".word");
+            console.log()
+        
+            const animateAll = (animate) => 
+            {setTimeout(() => {
+                    animate(words[0]);
+                    setTimeout(() => {
+                        animate(words[1]);
+                        setTimeout(() => {
+                            animate(words[2]);
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+            }
+        
+            const animate = (word) => {
+                word.classList.add("animate");
+            }
+        
+            animateAll(animate);
+        
+    
+            (CALLBCK Hell):Callback Hell is essentially nested callbacks stacked below one another forming a pyramid structure.</pre>
+            <hr>
+        <h5>7. Create examples to explain promises function</h5>
+        <pre>let x= new Promise((resolve,reject)=>{
+            let a= 99;
+             if(a == 99){
+                resolve ("resolved")
+             } 
+             else reject ("rejected")
+        })
+        
+        x.then((a)=>{console.log(a)}).catch((a)=>{console.log(a)})</pre>
+        <hr>
+       
+        <h5>8. Create examples to explain async await function</h5>
+        <pre> async function callback(){
+        
+            let x= new Promise((resolve,reject)=>{
+                let a= 99;
+                 if(a == 99){
+                    resolve ("resolved")
+                 } 
+                 else reject ("rejected")
+            })
+            
+            await x.then((a)=>{console.log(a)}).catch((b)=>{console.log(b)})
+            console.log("async and await")
+            }
+            
+            callback()</pre>
+            <hr>
+        <h5>9. Create examples to explain promise.all function</h5>
+        <pre>  let a = true;
+            let b = new Promise((resolve, reject) => {
+                let x = 100
+                if(x > 10){
+                    resolve("Resolved")
+                }
+                else{
+                    reject("Rejected")
+                }
+            });
+            
+            Promise.all([a,b]).then((a) => {
+              console.log(a);
+            });
+            
+            </pre>
+    <script src="script.js"></script>
+</body>
+</html>
